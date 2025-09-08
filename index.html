@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>RESTAURANT</title>
+</head>
+
+<body>
+    <p class="restaurant_name">Welcome to</p>
+    <p class="restaurant_name">Gj Restaurant</p>
+
+    <form class="user_details" method="POST" action="submit.php" id="loginForm">
+        <div class="login_label">
+            <h2>Login</h2>
+            <input type="text" class="Name" id="username" name="username" placeholder="Enter your name:" required>
+            <input type="tel" class="Phone_number" id="phonenumber" name="phonenumber"
+                placeholder="Enter your phone number:" pattern="[0-9]{10}" required>
+            <button class="submit_button" id="btn_submit" type="submit">Submit</button>
+        </div>
+    </form>
+
+    <script>
+        document.querySelector('.user_details').addEventListener("submit", function (event) {
+            var name = document.getElementById('username').value.trim();
+            var number = document.getElementById('phonenumber').value.trim();
+
+            if (name === "" || number === "") {
+                alert("Please fill in all fields.");
+                event.preventDefault();
+                return;
+            }
+
+            // Store user details in localStorage
+            localStorage.setItem('username', name);
+            localStorage.setItem('phonenumber', number);
+        });
+    </script>
+</body>
+
+</html>

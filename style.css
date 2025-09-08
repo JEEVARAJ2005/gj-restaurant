@@ -1,0 +1,99 @@
+body{
+    
+    background-image: url(images/login.jpg);
+}
+
+h2{
+    color: white;
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.restaurant_name{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    color:white;
+    text-align: center; 
+    margin-top: 30px; 
+    padding-top: 10px;
+    padding-bottom: 10px;  
+}
+.user_details{
+width:300px;
+height:320px;
+border: solid;
+border-radius:15px;
+border-color:white;
+text-align: center;
+margin-left:40%;
+} 
+.Name,.Phone_number{
+display:inline-block;
+margin-top:20px;
+width:250px;
+height:30px;
+border-radius: 6px;
+border-color: aqua;
+}   
+.Name:hover,.Phone_number:hover{
+    border-color:greenyellow;
+}
+.Phone_number{
+margin-top:40px;
+}
+
+.submit_button{
+margin-top:40px;
+width: 150px;
+height:33px;
+border: solid;
+border-width: 2px;
+border-color: white;
+background-color: aquamarine;
+border-radius: 15px;
+color: black;
+text-decoration: none;
+font-size: 14px;
+font-weight: bold;
+cursor:pointer;
+
+
+}
+.submit_button:active{
+    background-color: seagreen;
+    transform: scale(0.98);
+}
+.login_label {
+    background: rgba(255, 255, 255, 0);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0);
+    border-radius: 12px;
+    padding: 15px 10px;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.login_label h2 {
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0;
+}
+
+
+@media only screen and (max-width:600px){
+    .user_details{
+        width: 80%;
+        margin: auto;
+        margin-top: 20%;
+    }
+    .Name{
+        width: 78%;
+    }
+    .Phone_number{
+        width: 78%;
+    }
+    .submit_button{
+        width: 50%;
+    }
+}

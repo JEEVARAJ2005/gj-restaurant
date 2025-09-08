@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin - Orders</title>
+<link rel="stylesheet" href="style1.css">
+<style>
+    table { width: 90%; margin: 20px auto; border-collapse: collapse; color:white; }
+    th, td { border: 1px solid white; padding: 10px; text-align: center; }
+    th { background-color: #1e3a8a; }
+</style>
+</head>
+<body>
+<h2 style="text-align:center; color:#ffffff; margin-top:20px;">All Customer Orders</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Order ID</th>
+            <th>User Name</th>
+            <th>Phone Number</th>
+            <th>Table No</th>
+            <th>Items</th>
+            <th>Total Price (₹)</th>
+        </tr>
+    </thead>
+    <tbody>
+    <?php
+        $conn = new mysqli("localhost", "root", "spgj2005@", "restaurant_db");
+        if($conn->connect_error) { die("Connection failed: " . $conn->connect_error); }
+
+        $sql = "SELECT * FROM orders ORDER BY id DESC";
+        $result = $conn->query($sql);
+
+        if($result->num_rows > 0){
+            while($row = $result->fetch_assoc()){
+                $items = json_decode($row['items'], true);
+                $itemsList = '';
+                foreach($items as $item){
+                    $itemsList .= $item['name'] . " (Qty: " . $item['quantity'] . ", ₹" . $item['price']*$item['quantity'] . ")<br>";
+                }
+                echo "<tr>
+                        <td>{$row['id']}</td>
+                        <td>{$row['username']}</td>
+                        <td>{$row['phonenumber']}</td>
+                        <td>{$row['tableNo']}</td>
+                        <td>$itemsList</td>
+                        <td>₹{$row['total']}</td>
+                    </tr>";
+            }
+        } else {
+            echo "<tr><td colspan='6'>No orders yet.</td></tr>";
+        }
+
+        $conn->close();
+    ?>
+    </tbody>
+</table>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Break-Fast FOODS</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+    <p class="restaurant_name">BREAKFAST MENU</p>
+    
+    <div class="menuList" id="menuList">  
+        <!-- Menu items will be generated dynamically -->
+    </div>
+
+    <!-- Popup container (single for all items) -->
+    <div class="popup-container" id="popup">
+        <span class="close-btn" onclick="closePopup()">&times;</span>
+        <img class="popupImage-logo" src="" alt="dish-image">
+        <p class="popupdishName"></p>
+        <p class="rate"></p>
+        <div class="add-container">
+            <button class="button" id="addBtn">Add</button>
+            <div id="incrementDecrementButtons" class="hidden">
+                <button class="button" id="decrementBtn">-</button>
+                <span class="value" id="counter">1</span>
+                <button class="button" id="incrementBtn">+</button>
+            </div>
+        </div>
+        <button class="order-button" id="orderButton" onclick="placeOrder()">Add to Cart</button>
+        <div id="tickMark" class="hidden">&#10004;</div>
+    </div>
+
+    <a href="cart.html" class="cart-icon" title="View Cart">🛒</a>
+    
+    <script src="script.js"></script>
+</body>
+</html>
